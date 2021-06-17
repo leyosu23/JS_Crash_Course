@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="static\css\style.css">
     <title>Javascript on Steroids</title>
 </head>
+
 <body>
-        <div class="container-1">
+    <div class="container-1">
         <h2>Challenge 1 : Your Age in Days</h2>
         <div class="flex-box-container-1">
             <div>
@@ -19,31 +21,96 @@
             </div>
         </div>
 
-            <div class="flex-box-container-1">
-                <div id="flex-box-result"></div>
+        <div class="flex-box-container-1">
+            <div id="flex-box-result"></div>
+        </div>
+    </div>
+
+    <div class="container-2">
+        <h2>Challenge 2: Cat Generator</h2>
+        <button class="btn btn-success" id="cat-generator" onclick="generateCat()">Generate Cat</button>
+        <div class="flex-box-container-2" id="flex-cat-gen">
+        </div>
+    </div>
+
+    <div class="container-3">
+        <h2>Challenge 3: Rock, Paper, Scissors</h2>
+
+        <div class="flex-box-rps" id="flex-box-rps-div">
+            <img id="rock"
+                src="https://www.pngfind.com/pngs/m/50-503462_image-rock-icon-transparent-background-hd-png-download.png"
+                width=150 height=150 onclick="rpsGame(this)">
+            <img id="paper"
+                src="data:image/png;base64,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"
+                width=150 height=150 onclick="rpsGame(this)">
+            <img id="scissors" src="https://www.seekpng.com/png/detail/37-379463_hand-scissors-icon.png" width=150
+                height=150 onclick="rpsGame(this)">
+
+        </div>
+    </div>
+
+    <div class="container-4">
+        <h2>Challenge 4: Change the button colors</h2>
+
+        <div class="flex-box-pick-color">
+            <form action="">
+                <select name="backdrop" id="background" onchange="buttonColorChange(this)">
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="random">Random</option>
+                    <option value="reset">Reset</option>
+                </select>
+            </form>
+
+            <button class="btn btn-primary">Wo!</button>
+            <button class="btn btn-danger">Yea!</button>
+            <button class="btn btn-warning">Yo!</button>
+            <button class="btn btn-success">LOL!</button>
+        </div>
+    </div>
+
+    <div class="container-5">
+        <h2>Challenge 4: Change the button colors</h2>
+        <h3><span id="blackjack-result">Let's Play</span></h3>
+        
+        <div class="flex-blackjack-row-1">
+            <div id="your-box">
+                <h2>You: <span id="your-blackjack-result">0</span></h2>
+            </div>
+
+            <div id="dealer-box">
+                <h2>Dealer: <span id="dealer-blackjack-result">0</span></h2>
+            </div> 
+
+        </div>
+
+        <div class="flex-blackjack-row-2">
+            <div>
+                <button class="btn-lg btn-primary mr-2" id="hit-btn">Hit</button>
+                <button class="btn-lg btn-danger mr-2" id="stand-btn">Stand</button>
+                <button class="btn-lg btn-warning mr-2" id="deal-btn">Deal</button>
+
             </div>
         </div>
 
-        <div class="container-2">
-            <h2>Challenge 2: Cat Generator</h2>
-            <button class="btn btn-success" id="cat-generator" onclick="generateCat()">Generate Cat</button>
-            <div class="flex-box-container-2" id = "flex-cat-gen"> 
-            </div>
+        <div class="flex-blackjack-row-3">
+            <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Loses</th>
+                    <th>Draws</th>
+                </tr>
+
+                <tr>
+                    <td id="wins">0</td>
+                    <td id="loses">0</td>
+                    <td id="draws">0</td>
+                </tr>
+            </table>
         </div>
+    </div>
 
-        <div class="container-3">
-            <h2>Challenge 3: Rock, Paper, Scissors</h2>
-            
-            <div class="flex-box-rps" id = "flex-box-rps-div"> 
-                <img id="rock" src="https://www.pngfind.com/pngs/m/50-503462_image-rock-icon-transparent-background-hd-png-download.png" width= 150 height= 150 onclick="rpsGame(this)">
-                <img id="paper" src="data:image/png;base64,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" width= 150 height= 150 onclick="rpsGame(this)">
-                <img id="scissors" src="https://www.seekpng.com/png/detail/37-379463_hand-scissors-icon.png" width= 150 height= 150 onclick="rpsGame(this)">
-                
-            </div>
-        </div>
-
-
-    
     <script src="static/script.js"></script>
 </body>
+
 </html>
